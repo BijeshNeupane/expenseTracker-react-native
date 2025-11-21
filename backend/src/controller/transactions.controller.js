@@ -1,6 +1,7 @@
 import { sql } from "../config/db.js";
 
 export async function getTransactionByUserId(req, res) {
+  console.log("hit");
   try {
     const { userId } = req.params;
     const transactions = await sql`

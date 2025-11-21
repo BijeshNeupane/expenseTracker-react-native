@@ -17,6 +17,10 @@ const PORT = process.env.PORT || 5001;
 
 app.use("/api/transactions", transactionRoute);
 
+app.get("/", (req, res) => {
+  res.send("Hello World!");
+});
+
 initDB().then(() => {
   app.listen(PORT, () => {
     console.log(`Example app listening on port ${PORT}`);
