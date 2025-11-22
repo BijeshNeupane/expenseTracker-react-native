@@ -1,6 +1,6 @@
 import { useCallback, useState } from "react";
 import { Alert } from "react-native";
-const API_URL = "http://localhost:5001/api";
+import { API_URL } from "../constants/api";
 
 export const useTransactions = (userId: string) => {
   const [transactions, setTransactions] = useState([]);
@@ -10,10 +10,6 @@ export const useTransactions = (userId: string) => {
     expenses: 0,
   });
   const [isLoading, setIsLoading] = useState(true);
-
-  console.log("user id in hook is", userId);
-  console.log("api is", API_URL);
-  console.log("api full is", `${API_URL}/transactions/${userId}`);
 
   // useCallback is used for performance reasons, it will memoize the function
   const fetchTransactions = useCallback(async () => {
